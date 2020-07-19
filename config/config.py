@@ -1,0 +1,5 @@
+username='chetanallapur'
+password='9480413641Cz'
+account='yv57224.ap-south-1'
+warehouse='demo'
+database='Test'
