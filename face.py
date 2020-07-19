@@ -8,7 +8,7 @@ import array
 #----------------------------------------------------------------------------------------
 #For Video Capture
 video_capture = cv2.VideoCapture(0)
-
+#----------------------------------------------------------------------------------------
 #Creating the connection and Setup
 conn = sf.connect (user=config.username, password=config.password, account=config.account)
 
@@ -32,7 +32,7 @@ try:
 
 except Exception as e:
     print(e)
-
+#----------------------------------------------------------------------------------------
 #For dynamically loading the image list from snowflake database
 sql = "select image from users"
 cursor = conn.cursor()
@@ -57,8 +57,7 @@ cursor.execute(sql)
 for c in cursor:
     known_face_names.append(c[0])
 
-
-
+#----------------------------------------------------------------------------------------
 #Face Recognition Routine
 while True:
     ret, frame = video_capture.read()
@@ -88,3 +87,4 @@ while True:
     # Q to quit!
     if cv2.waitKey(1) & 0xFF == ord('q'):
         break
+#----------------------------------------------------------------------------------------
